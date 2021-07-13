@@ -11,8 +11,8 @@ import 'cloud_speech.pbenum.dart';
 export 'cloud_speech.pbenum.dart';
 
 class RecognizeRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognizeRequest',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('StreamingRecognize',
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..aOM<RecognitionConfig>(1, 'config', subBuilder: RecognitionConfig.create)
     ..aOM<RecognitionAudio>(2, 'audio', subBuilder: RecognitionAudio.create)
@@ -82,8 +82,8 @@ class StreamingRecognizeRequest extends $pb.GeneratedMessage {
     2: StreamingRecognizeRequest_StreamingRequest.audioContent,
     0: StreamingRecognizeRequest_StreamingRequest.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('StreamingRecognizeRequest',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('StreamingRecognitionRequest',
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..aOM<StreamingRecognitionConfig>(1, 'streamingConfig',
@@ -150,7 +150,7 @@ class StreamingRecognizeRequest extends $pb.GeneratedMessage {
 class StreamingRecognitionConfig extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'StreamingRecognitionConfig',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..aOM<RecognitionConfig>(1, 'config', subBuilder: RecognitionConfig.create)
     ..aOB(2, 'singleUtterance')
@@ -223,7 +223,7 @@ class StreamingRecognitionConfig extends $pb.GeneratedMessage {
 
 class RecognitionConfig extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognitionConfig',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..e<RecognitionConfig_AudioEncoding>(1, 'encoding', $pb.PbFieldType.OE,
         defaultOrMaker: RecognitionConfig_AudioEncoding.ENCODING_UNSPECIFIED,
@@ -435,7 +435,7 @@ class RecognitionConfig extends $pb.GeneratedMessage {
 
 class SpeakerDiarizationConfig extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('SpeakerDiarizationConfig',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..aOB(1, 'enableSpeakerDiarization')
     ..a<$core.int>(2, 'minSpeakerCount', $pb.PbFieldType.O3)
@@ -522,7 +522,7 @@ class SpeakerDiarizationConfig extends $pb.GeneratedMessage {
 
 class RecognitionMetadata extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognitionMetadata',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..e<RecognitionMetadata_InteractionType>(
         1, 'interactionType', $pb.PbFieldType.OE,
@@ -675,7 +675,7 @@ class RecognitionMetadata extends $pb.GeneratedMessage {
 
 class SpeechContext extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('SpeechContext',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..pPS(1, 'phrases')
     ..hasRequiredFields = false;
@@ -716,7 +716,7 @@ class RecognitionAudio extends $pb.GeneratedMessage {
     0: RecognitionAudio_AudioSource.notSet
   };
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognitionAudio',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..oo(0, [1, 2])
     ..a<$core.List<$core.int>>(1, 'content', $pb.PbFieldType.OY)
@@ -775,8 +775,8 @@ class RecognitionAudio extends $pb.GeneratedMessage {
 }
 
 class RecognizeResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognizeResponse',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo('StreamingRecognitionResponse',
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..pc<SpeechRecognitionResult>(2, 'results', $pb.PbFieldType.PM,
         subBuilder: SpeechRecognitionResult.create)
@@ -811,7 +811,7 @@ class RecognizeResponse extends $pb.GeneratedMessage {
 class LongRunningRecognizeResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'LongRunningRecognizeResponse',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..pc<SpeechRecognitionResult>(2, 'results', $pb.PbFieldType.PM,
         subBuilder: SpeechRecognitionResult.create)
@@ -850,7 +850,7 @@ class LongRunningRecognizeResponse extends $pb.GeneratedMessage {
 class LongRunningRecognizeMetadata extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'LongRunningRecognizeMetadata',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..a<$core.int>(1, 'progressPercent', $pb.PbFieldType.O3)
     ..aOM<$3.Timestamp>(2, 'startTime', subBuilder: $3.Timestamp.create)
@@ -927,7 +927,7 @@ class LongRunningRecognizeMetadata extends $pb.GeneratedMessage {
 class StreamingRecognizeResponse extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'StreamingRecognizeResponse',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..aOM<$4.Status>(1, 'error', subBuilder: $4.Status.create)
     ..pc<StreamingRecognitionResult>(2, 'results', $pb.PbFieldType.PM,
@@ -998,7 +998,7 @@ class StreamingRecognizeResponse extends $pb.GeneratedMessage {
 class StreamingRecognitionResult extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'StreamingRecognitionResult',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..pc<SpeechRecognitionAlternative>(1, 'alternatives', $pb.PbFieldType.PM,
         subBuilder: SpeechRecognitionAlternative.create)
@@ -1102,7 +1102,7 @@ class StreamingRecognitionResult extends $pb.GeneratedMessage {
 
 class SpeechRecognitionResult extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('SpeechRecognitionResult',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..pc<SpeechRecognitionAlternative>(1, 'alternatives', $pb.PbFieldType.PM,
         subBuilder: SpeechRecognitionAlternative.create)
@@ -1152,7 +1152,7 @@ class SpeechRecognitionResult extends $pb.GeneratedMessage {
 class SpeechRecognitionAlternative extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(
       'SpeechRecognitionAlternative',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..aOS(1, 'transcript')
     ..a<$core.double>(2, 'confidence', $pb.PbFieldType.OF)
@@ -1215,7 +1215,7 @@ class SpeechRecognitionAlternative extends $pb.GeneratedMessage {
 
 class WordInfo extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo('WordInfo',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
+      package: const $pb.PackageName('vbee.stt.v1.SttService'),
       createEmptyInstance: create)
     ..aOM<$5.Duration>(1, 'startTime', subBuilder: $5.Duration.create)
     ..aOM<$5.Duration>(2, 'endTime', subBuilder: $5.Duration.create)

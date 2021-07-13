@@ -16,8 +16,11 @@ class SpeechToText {
   final CallOptions _options;
   // default channel with host from google API
   // final ClientChannel _channel = ClientChannel('speech.googleapis.com');
-  final ClientChannel _channel = ClientChannel('asr-benchmark.vais.vn',
-      port: 50050,
+  // final ClientChannel _channel = ClientChannel('asr-benchmark.vais.vn',
+  //     port: 50050,
+  //     options: const ChannelOptions(credentials: const ChannelCredentials.insecure()));
+  final ClientChannel _channel = ClientChannel('4.tcp.ngrok.io',
+      port: 14929,
       options: const ChannelOptions(credentials: const ChannelCredentials.insecure()));
   SpeechToText._(this._options);
 

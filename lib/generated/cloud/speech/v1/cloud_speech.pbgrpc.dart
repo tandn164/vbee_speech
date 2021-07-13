@@ -9,14 +9,14 @@ export 'cloud_speech.pb.dart';
 class SpeechClient extends $grpc.Client {
   static final _$recognize =
       $grpc.ClientMethod<$2.RecognizeRequest, $2.RecognizeResponse>(
-          '/vais.cloud.speech.v1.Speech/Recognize',
+          '/vbee.stt.v1.SttService/Recognize',
           ($2.RecognizeRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $2.RecognizeResponse.fromBuffer(value));
 
   static final _$streamingRecognize = $grpc.ClientMethod<
           $2.StreamingRecognizeRequest, $2.StreamingRecognizeResponse>(
-      '/vais.cloud.speech.v1.Speech/StreamingRecognize',
+      '/vbee.stt.v1.SttService/StreamingRecognize',
       ($2.StreamingRecognizeRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) =>
           $2.StreamingRecognizeResponse.fromBuffer(value));
@@ -41,7 +41,7 @@ class SpeechClient extends $grpc.Client {
 }
 
 abstract class SpeechServiceBase extends $grpc.Service {
-  $core.String get $name => 'vais.cloud.speech.v1.Speech';
+  $core.String get $name => 'vbee.stt.v1.SttService';
 
   SpeechServiceBase() {
     $addMethod($grpc.ServiceMethod<$2.RecognizeRequest, $2.RecognizeResponse>(
