@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "prime-artwork-314818",
+  "private_key_id": "1eb959e36feb87c5e22f44b7c947a9cc20d34279",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCcw2W4xWvAXQLT\nLF5EuyqI8zwjqW2/YBxC2wv5GPCG857N+fx7cKjscrQP74KNSs8EXF+xJBTQTLJ/\nAePqtKABjtxjUO3ZkzxnfwuXM682A38zOi8V68uu+DitLjjaS4XFKSasJ1kou5Tn\nGDFCA82liTULlk2paPVZ+wM0z5cONIulPIGV6NEA1DDqDwieX946lWH2Ctny7681\nIc0tpPOYsvNPXC7ZurKaDt4ickVaWBCNigvxo6tNM3LqfkOQDjUFtrXlwatAilqD\nRN5pIwVf2+bwkxjYbO+OQzt27wL24Qn9SJaGMPbw+5xTiK4lrclXAMUO3Y3kkgRG\nBu2cwkCHAgMBAAECggEARDVi18QSr7boqUCnXcmAZulKtAue5IOpmE9eBMscsONk\nqCPK/1zUK1l3Tm28xMSVkcStoFJeOgn9KnUEmdVwv2zNKOuIKkC9qhylyuripCJe\nYMhCv4uC6wU3B+dSNm1g7ZoLqSFP0oDX97tXh21HN+0c5wdFkF5KTxYAXaSribKV\nUf+0jxdqus5TGO6f4+03NBgF9raNXV/88Ua0YB/ZyVxOe/HWkUqUbAEG+HG7O6lB\nq+nCDWL7r0UtZZf4yGEDmHTj4/j9t6wHgb0OinxjxyVIBwaAqJt6fr9rTU2ueyMj\nA+IyhRLAQ6oFoSuGohilDE1g1IqhwcnLLyA6YaT2JQKBgQDaArE2om8NUmksF/Wx\n22r6YVxsvp3eVkMx4amsukdwIZ1MNb0nYS1OGFXI8xlJsWdX8tAKoiXQRI753S7y\nt8Qxh9cZr1jy/yuCwUMhB8jdQsSeG8iBFMoMT4Mcu3IhKIETyZuIW54RTR/UUtYn\n7hFVtFfE9eizyY3u4EnmYAAKnQKBgQC4FIFU5mnabbGYzgH4zUMMMOLvKwFOHdcG\n5WFjwvQ1F/LKKzEhTqTIIU8MgiVcQ5n/zvoIknNWdav+m+JELcny40+rbkXoUd+f\n3rrfbozBpK7mk/ENFQe8gBgxr7/yS4sqOOPa9dUnKeVG4rKI978mEvmJeRj+NaXA\ngZZt20yscwKBgQCOBqj6hdHBJQodTrKinuZPnXP/6CKiwSHfcjr+qxB1LYDzMCM9\nb2J7eQER+8Viq+8+bZI5Cy+FQdS/VOgL+coX1n48Xm6dR71J3qvj7dVex+udcU4r\nQabrZDVvV3JfxappgLMRn1YXwV3WDe00cDTc17NCPk3OKqWLlJSwP6RnRQKBgHlf\nq9cbBfisE0m5q7stPGQxZ7BjHr0vF7TIUerBhNvtKnz69a4MeMIslD6fIZswR75P\n7rTwO3Rqqjl69zoVJu8rykAyuY1xTo3PAlCIR+72cww9x9bkYvF7VHiOdXWBMgVo\n9XROW3kzOqX+m9GL6VFleXuXiU80eFHyIAnXazrZAoGAYaCD64HLk7VvoEBgbzKh\nqHahr5KfEoEBfPBQtrXjXRXIBucbchF1I0G2UIcoEHOQ2reWQ7so724pVa3xh5UZ\nx2un/rLUh6meYfO95CdlWqVGxwIYBXjxwha8+SxsUrA3MusnJOZF6IzTfP+2YWjZ\ne3ic6EWxvcCvmWwxsxbRxX4=\n-----END PRIVATE KEY-----\n",
+  "client_email": "asr-jap@prime-artwork-314818.iam.gserviceaccount.com",
+  "client_id": "105819669137777660184",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/asr-jap%40prime-artwork-314818.iam.gserviceaccount.com"
+}

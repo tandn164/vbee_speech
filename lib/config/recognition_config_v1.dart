@@ -1,5 +1,5 @@
 import 'package:vbee_speech/config/recognition_config.dart';
-import 'package:vbee_speech/generated/google/cloud/speech/v1/cloud_speech.pb.dart'
+import 'package:vbee_speech/generated/cloud/speech/v1/cloud_speech.pb.dart'
     as _cs;
 
 class RecognitionConfig {
@@ -7,21 +7,9 @@ class RecognitionConfig {
   /// that specifies how to process the request.
   RecognitionConfig({
     required this.encoding,
-    required this.languageCode,
     this.sampleRateHertz,
-    this.audioChannelCount = 1,
-    this.enableSeparateRecognitionPerChannel = false,
-    this.maxAlternatives = 1,
-    this.profanityFilter = false,
-    this.speechContexts = const [],
-    this.enableWordTimeOffsets = false,
-    this.enableAutomaticPunctuation = false,
-    this.diarizationConfig,
-    this.recognitionMetadata,
-    this.model = RecognitionModel.basic,
-    this.useEnhanced = false,
-  })  : assert(languageCode != null),
-        assert(encoding != AudioEncoding.AMR || sampleRateHertz == 8000,
+    this.model = 'general',
+  })  : assert(encoding != AudioEncoding.AMR || sampleRateHertz == 8000,
             'sampleRateHertz must be 8000.'),
         assert(encoding != AudioEncoding.AMR_WB || sampleRateHertz == 16000,
             'sampleRateHertz must be 16000.'),
@@ -36,25 +24,8 @@ class RecognitionConfig {
 
   _cs.RecognitionConfig toConfig() => (_cs.RecognitionConfig()
     ..encoding = _encoding(encoding)
-    ..languageCode = languageCode
     ..sampleRateHertz = sampleRateHertz!
-    ..audioChannelCount = audioChannelCount
-    ..enableSeparateRecognitionPerChannel = enableSeparateRecognitionPerChannel
-    ..maxAlternatives = maxAlternatives
-    ..profanityFilter = profanityFilter
-    ..enableWordTimeOffsets = enableWordTimeOffsets
-    ..enableAutomaticPunctuation = enableAutomaticPunctuation
-    ..diarizationConfig = diarizationConfig ?? _cs.SpeakerDiarizationConfig()
-    ..metadata = recognitionMetadata ?? _cs.RecognitionMetadata()
-    ..model = _model(model)
-    ..speechContexts
-        .addAll(speechContexts.map((sc) => sc.toGoogleSpeechContext()))
-    ..useEnhanced = useEnhanced);
-
-  String _model(RecognitionModel model) => model
-      .toString()
-      .replaceAll('RecognitionModel.', '')
-      .replaceAll('basic', 'default');
+    ..model = model);
 
   _cs.RecognitionConfig_AudioEncoding _encoding(AudioEncoding encoding) {
     switch (encoding) {
@@ -87,111 +58,9 @@ class RecognitionConfig {
     }
   }
 
-  /// Encoding of audio data sent in all RecognitionAudio messages.
-  /// This field is optional for FLAC and WAV audio files and required for all
-  /// other audio formats. For details, see [AudioEncoding].
   AudioEncoding encoding;
 
-  /// Sample rate in Hertz of the audio data sent in all RecognitionAudio
-  /// messages. Valid values are: 8000-48000. 16000 is optimal. For best
-  /// results, set the sampling rate of the audio source to 16000 Hz.
-  /// If that's not possible, use the native sample rate of the audio source
-  /// (instead of re-sampling). This field is optional for FLAC and WAV audio
-  /// files, but is required for all other audio formats.
-  /// For details, see [AudioEncoding].
   int? sampleRateHertz;
 
-  /// The number of channels in the input audio data. ONLY set this for
-  /// MULTI-CHANNEL recognition. Valid values for LINEAR16 and FLAC are 1-8.
-  /// Valid values for OGG_OPUS are '1'-'254'.
-  /// Valid value for MULAW, AMR, AMR_WB and SPEEX_WITH_HEADER_BYTE is only 1.
-  /// If 0 or omitted, defaults to one channel (mono).
-  ///
-  /// Note: We only recognize the first channel by default.
-  /// To perform independent recognition on each channel
-  /// set [enableSeparateRecognitionPerChannel] to 'true'.
-  int audioChannelCount;
-
-  /// This needs to be set to true explicitly and audioChannelCount > 1 to get
-  /// each channel recognized separately. The recognition result will contain a
-  /// channelTag field to state which channel that result belongs to.
-  /// If this is not true, we will only recognize the first channel.
-  /// The request is billed cumulatively for all channels recognized:
-  /// [audioChannelCount] multiplied by the length of the audio.
-  bool enableSeparateRecognitionPerChannel;
-
-  /// Required. The language of the supplied audio as a
-  /// [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
-  /// Example: "en-US".
-  /// See [Language Support](https://cloud.google.com/speech-to-text/docs/languages)
-  /// for a list of the currently supported language codes.
-  String languageCode;
-
-  /// Maximum number of recognition hypotheses to be returned.
-  /// Specifically, the maximum number of [SpeechRecognitionAlternative]
-  /// messages within each [SpeechRecognitionResult].
-  /// The server may return fewer than maxAlternatives.
-  /// Valid values are 0-30. A value of 0 or 1 will return a maximum of one.
-  /// If omitted, will return a maximum of one.
-  int maxAlternatives;
-
-  /// If set to true, the server will attempt to filter out profanities,
-  /// replacing all but the initial character in each filtered word with
-  /// asterisks, e.g. "f***". If set to false or omitted, profanities won't
-  /// be filtered out.
-  bool profanityFilter;
-
-  /// List of SpeechContext. A means to provide context to assist the
-  /// speech recognition. For more information,
-  /// see [speech adaptation](https://cloud.google.com/speech-to-text/docs/context-strength).
-  final List<SpeechContext> speechContexts;
-
-  /// If true, the top result includes a list of words and the start and end
-  /// time offsets (timestamps) for those words. If false, no word-level
-  /// time offset information is returned. The default is false.
-  bool enableWordTimeOffsets;
-
-  /// If 'true', adds punctuation to recognition result hypotheses.
-  /// This feature is only available in select languages.
-  /// Setting this for requests in other languages has no effect at all.
-  /// The default 'false' value does not add punctuation to result hypotheses.
-  bool enableAutomaticPunctuation;
-
-  /// Which model to select for the given request.
-  /// Select the model best suited to your domain to get best results.
-  /// If a model is not explicitly specified, then we auto-select a model
-  /// based on the parameters in the RecognitionConfig.
-  RecognitionModel model;
-
-  /// Set to true to use an enhanced model for speech recognition.
-  /// If useEnhanced is set to true and the model field is not set, then an
-  /// appropriate enhanced model is chosen if an enhanced model exists
-  /// for the audio.
-  ///
-  /// If useEnhanced is true and an enhanced version of the
-  /// specified model does not exist, then the speech is recognized using
-  /// the standard version of the specified model.
-  bool useEnhanced;
-
-  /// Config to enable speaker diarization and set additional parameters
-  /// to make diarization better suited for your application.
-  /// Note: When this is enabled, we send all the words from the beginning of
-  /// the audio for the top alternative in every consecutive STREAMING responses.
-  /// This is done in order to improve our speaker tags as our models learn to
-  /// identify the speakers in the conversation over time.
-  /// For non-streaming requests, the diarization results will be provided only
-  /// in the top alternative of the FINAL SpeechRecognitionResult.
-  final _cs.SpeakerDiarizationConfig? diarizationConfig;
-
-  /// Metadata regarding this request.
-  final _cs.RecognitionMetadata? recognitionMetadata;
-}
-
-class SpeechContext {
-  SpeechContext(this.phrases);
-
-  final List<String> phrases;
-
-  _cs.SpeechContext toGoogleSpeechContext() =>
-      _cs.SpeechContext()..phrases.addAll(phrases);
+  String model;
 }

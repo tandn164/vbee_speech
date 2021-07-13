@@ -1,3 +1,5 @@
+// TODO: This file is use only for google api. Remove after use lab914's api
+
 import 'dart:io';
 
 import 'package:vbee_speech/exception.dart';
