@@ -9,6 +9,10 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import 'stt_service.pbenum.dart';
+
+export 'stt_service.pbenum.dart';
+
 enum StreamingRecognitionRequest_StreamingRequest {
   config, 
   audioContent, 
@@ -16,19 +20,15 @@ enum StreamingRecognitionRequest_StreamingRequest {
 }
 
 class StreamingRecognitionRequest extends $pb.GeneratedMessage {
-  static const $core.Map<$core.int, StreamingRecognitionRequest_StreamingRequest>
-  _StreamingRecognitionRequest_StreamingRequestByTag = {
+  static const $core.Map<$core.int, StreamingRecognitionRequest_StreamingRequest> _StreamingRecognitionRequest_StreamingRequestByTag = {
     1 : StreamingRecognitionRequest_StreamingRequest.config,
     2 : StreamingRecognitionRequest_StreamingRequest.audioContent,
     0 : StreamingRecognitionRequest_StreamingRequest.notSet
   };
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('StreamingRecognizeRequest',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
-      createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'StreamingRecognitionRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'vbee.stt.v1'), createEmptyInstance: create)
     ..oo(0, [1, 2])
-    ..aOM<StreamingRecognitionConfig>(1, 'streamingConfig',
-        subBuilder: StreamingRecognitionConfig.create)
-    ..a<$core.List<$core.int>>(2, 'audioContent', $pb.PbFieldType.OY)
+    ..aOM<StreamingRecognitionConfig>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'config', subBuilder: StreamingRecognitionConfig.create)
+    ..a<$core.List<$core.int>>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'audioContent', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
 
@@ -92,15 +92,12 @@ class StreamingRecognitionRequest extends $pb.GeneratedMessage {
 }
 
 class StreamingRecognitionConfig extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      'StreamingRecognitionConfig',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
-      createEmptyInstance: create)
-    ..aOM<RecognitionConfig>(1, 'config', subBuilder: RecognitionConfig.create)
-    ..aOB(2, 'record')
-    ..aOB(3, 'partialResults')
-    ..aOB(4, 'singleUtterance')
-    ..aOB(5, 'rawResults')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'StreamingRecognitionConfig', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'vbee.stt.v1'), createEmptyInstance: create)
+    ..aOM<RecognitionConfig>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'config', subBuilder: RecognitionConfig.create)
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'record')
+    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'partialResults')
+    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'singleUtterance')
+    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'rawResults')
     ..hasRequiredFields = false
   ;
 
@@ -200,21 +197,28 @@ class StreamingRecognitionConfig extends $pb.GeneratedMessage {
 }
 
 class RecognitionConfig extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      'RecognitionConfig',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
-      createEmptyInstance: create)
-    ..aOS(1, 'model')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RecognitionConfig', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'vbee.stt.v1'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'model')
+    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sampleRateHertz', $pb.PbFieldType.O3)
+    ..e<RecognitionConfig_AudioEncoding>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'encoding', $pb.PbFieldType.OE, defaultOrMaker: RecognitionConfig_AudioEncoding.ENCODING_UNSPECIFIED, valueOf: RecognitionConfig_AudioEncoding.valueOf, enumValues: RecognitionConfig_AudioEncoding.values)
     ..hasRequiredFields = false
   ;
 
   RecognitionConfig._() : super();
   factory RecognitionConfig({
     $core.String? model,
+    $core.int? sampleRateHertz,
+    RecognitionConfig_AudioEncoding? encoding,
   }) {
     final _result = create();
     if (model != null) {
       _result.model = model;
+    }
+    if (sampleRateHertz != null) {
+      _result.sampleRateHertz = sampleRateHertz;
+    }
+    if (encoding != null) {
+      _result.encoding = encoding;
     }
     return _result;
   }
@@ -247,14 +251,30 @@ class RecognitionConfig extends $pb.GeneratedMessage {
   $core.bool hasModel() => $_has(0);
   @$pb.TagNumber(1)
   void clearModel() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.int get sampleRateHertz => $_getIZ(1);
+  @$pb.TagNumber(2)
+  set sampleRateHertz($core.int v) { $_setSignedInt32(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasSampleRateHertz() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearSampleRateHertz() => clearField(2);
+
+  @$pb.TagNumber(3)
+  RecognitionConfig_AudioEncoding get encoding => $_getN(2);
+  @$pb.TagNumber(3)
+  set encoding(RecognitionConfig_AudioEncoding v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasEncoding() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearEncoding() => clearField(3);
 }
 
 class RecognitionResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('RecognizeResponse',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
-      createEmptyInstance: create)
-    ..aOS(1, 'text')
-    ..aOB(2, 'received')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RecognitionResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'vbee.stt.v1'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'text')
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'received')
     ..hasRequiredFields = false
   ;
 
@@ -313,10 +333,8 @@ class RecognitionResponse extends $pb.GeneratedMessage {
 }
 
 class StreamingRecognitionResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('StreamingRecognizeResponse',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
-      createEmptyInstance: create)
-    ..pc<SpeechRecognitionChunk>(1, 'chunks', $pb.PbFieldType.PM, subBuilder: SpeechRecognitionChunk.create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'StreamingRecognitionResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'vbee.stt.v1'), createEmptyInstance: create)
+    ..pc<SpeechRecognitionChunk>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'chunks', $pb.PbFieldType.PM, subBuilder: SpeechRecognitionChunk.create)
     ..hasRequiredFields = false
   ;
 
@@ -356,11 +374,10 @@ class StreamingRecognitionResponse extends $pb.GeneratedMessage {
 }
 
 class SpeechRecognitionChunk extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SpeechRecognitionChunk',
-      package: const $pb.PackageName('vais.cloud.speech.v1'), createEmptyInstance: create)
-    ..pc<SpeechRecognitionAlternative>(1,'alternatives', $pb.PbFieldType.PM, subBuilder: SpeechRecognitionAlternative.create)
-    ..aOB(2, 'final')
-    ..aOB(3, 'endOfUtterance')
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpeechRecognitionChunk', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'vbee.stt.v1'), createEmptyInstance: create)
+    ..pc<SpeechRecognitionAlternative>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'alternatives', $pb.PbFieldType.PM, subBuilder: SpeechRecognitionAlternative.create)
+    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'final')
+    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'endOfUtterance')
     ..hasRequiredFields = false
   ;
 
@@ -426,11 +443,9 @@ class SpeechRecognitionChunk extends $pb.GeneratedMessage {
 }
 
 class SpeechRecognitionAlternative extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo('SpeechRecognitionAlternative',
-      package: const $pb.PackageName('vais.cloud.speech.v1'),
-      createEmptyInstance: create)
-    ..aOS(1, 'text')
-    ..a<$core.double>(2, 'confidence', $pb.PbFieldType.OF)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SpeechRecognitionAlternative', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'vbee.stt.v1'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'text')
+    ..a<$core.double>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'confidence', $pb.PbFieldType.OF)
     ..hasRequiredFields = false
   ;
 

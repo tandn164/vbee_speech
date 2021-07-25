@@ -12,7 +12,7 @@ import 'dart:typed_data' as $typed_data;
 const StreamingRecognitionRequest$json = const {
   '1': 'StreamingRecognitionRequest',
   '2': const [
-    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vais.cloud.speech.v1.StreamingRecognitionConfig', '9': 0, '10': 'config'},
+    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vbee.stt.v1.StreamingRecognitionConfig', '9': 0, '10': 'config'},
     const {'1': 'audio_content', '3': 2, '4': 1, '5': 12, '9': 0, '10': 'audioContent'},
   ],
   '8': const [
@@ -26,7 +26,7 @@ final $typed_data.Uint8List streamingRecognitionRequestDescriptor = $convert.bas
 const StreamingRecognitionConfig$json = const {
   '1': 'StreamingRecognitionConfig',
   '2': const [
-    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vais.cloud.speech.v1.RecognitionConfig', '10': 'config'},
+    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vbee.stt.v1.RecognitionConfig', '10': 'config'},
     const {'1': 'record', '3': 2, '4': 1, '5': 8, '10': 'record'},
     const {'1': 'partial_results', '3': 3, '4': 1, '5': 8, '10': 'partialResults'},
     const {'1': 'single_utterance', '3': 4, '4': 1, '5': 8, '10': 'singleUtterance'},
@@ -41,11 +41,29 @@ const RecognitionConfig$json = const {
   '1': 'RecognitionConfig',
   '2': const [
     const {'1': 'model', '3': 1, '4': 1, '5': 9, '10': 'model'},
+    const {'1': 'sample_rate_hertz', '3': 2, '4': 1, '5': 5, '10': 'sampleRateHertz'},
+    const {'1': 'encoding', '3': 3, '4': 1, '5': 14, '6': '.vbee.stt.v1.RecognitionConfig.AudioEncoding', '10': 'encoding'},
+  ],
+  '4': const [RecognitionConfig_AudioEncoding$json],
+};
+
+@$core.Deprecated('Use recognitionConfigDescriptor instead')
+const RecognitionConfig_AudioEncoding$json = const {
+  '1': 'AudioEncoding',
+  '2': const [
+    const {'1': 'ENCODING_UNSPECIFIED', '2': 0},
+    const {'1': 'LINEAR16', '2': 1},
+    const {'1': 'FLAC', '2': 2},
+    const {'1': 'MULAW', '2': 3},
+    const {'1': 'AMR', '2': 4},
+    const {'1': 'AMR_WB', '2': 5},
+    const {'1': 'OGG_OPUS', '2': 6},
+    const {'1': 'SPEEX_WITH_HEADER_BYTE', '2': 7},
   ],
 };
 
 /// Descriptor for `RecognitionConfig`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List recognitionConfigDescriptor = $convert.base64Decode('ChFSZWNvZ25pdGlvbkNvbmZpZxIUCgVtb2RlbBgBIAEoCVIFbW9kZWw=');
+final $typed_data.Uint8List recognitionConfigDescriptor = $convert.base64Decode('ChFSZWNvZ25pdGlvbkNvbmZpZxIUCgVtb2RlbBgBIAEoCVIFbW9kZWwSKgoRc2FtcGxlX3JhdGVfaGVydHoYAiABKAVSD3NhbXBsZVJhdGVIZXJ0ehJICghlbmNvZGluZxgDIAEoDjIsLnZiZWUuc3R0LnYxLlJlY29nbml0aW9uQ29uZmlnLkF1ZGlvRW5jb2RpbmdSCGVuY29kaW5nIosBCg1BdWRpb0VuY29kaW5nEhgKFEVOQ09ESU5HX1VOU1BFQ0lGSUVEEAASDAoITElORUFSMTYQARIICgRGTEFDEAISCQoFTVVMQVcQAxIHCgNBTVIQBBIKCgZBTVJfV0IQBRIMCghPR0dfT1BVUxAGEhoKFlNQRUVYX1dJVEhfSEVBREVSX0JZVEUQBw==');
 @$core.Deprecated('Use recognitionResponseDescriptor instead')
 const RecognitionResponse$json = const {
   '1': 'RecognitionResponse',
@@ -61,7 +79,7 @@ final $typed_data.Uint8List recognitionResponseDescriptor = $convert.base64Decod
 const StreamingRecognitionResponse$json = const {
   '1': 'StreamingRecognitionResponse',
   '2': const [
-    const {'1': 'chunks', '3': 1, '4': 3, '5': 11, '6': '.vais.cloud.speech.v1.SpeechRecognitionChunk', '10': 'chunks'},
+    const {'1': 'chunks', '3': 1, '4': 3, '5': 11, '6': '.vbee.stt.v1.SpeechRecognitionChunk', '10': 'chunks'},
   ],
   '9': const [
     const {'1': 2, '2': 3},
@@ -75,7 +93,7 @@ final $typed_data.Uint8List streamingRecognitionResponseDescriptor = $convert.ba
 const SpeechRecognitionChunk$json = const {
   '1': 'SpeechRecognitionChunk',
   '2': const [
-    const {'1': 'alternatives', '3': 1, '4': 3, '5': 11, '6': '.vais.cloud.speech.v1.SpeechRecognitionAlternative', '10': 'alternatives'},
+    const {'1': 'alternatives', '3': 1, '4': 3, '5': 11, '6': '.vbee.stt.v1.SpeechRecognitionAlternative', '10': 'alternatives'},
     const {'1': 'final', '3': 2, '4': 1, '5': 8, '10': 'final'},
     const {'1': 'end_of_utterance', '3': 3, '4': 1, '5': 8, '10': 'endOfUtterance'},
   ],
