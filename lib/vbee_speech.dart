@@ -1,6 +1,4 @@
-export 'config/recognition_config.dart';
-export 'config/recognition_config_v1.dart';
-export 'config/streaming_recognition_config.dart';
+export 'config/vbee_recognition_config_v1.dart';
+export 'config/vbee_stream_recognition_config.dart';
 export 'exception.dart';
-export 'speech_client_authenticator.dart';
-export 'speech_to_text.dart';
+export 'vbee_speech_to_text.dart';

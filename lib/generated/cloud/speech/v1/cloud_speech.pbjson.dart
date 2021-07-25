@@ -13,7 +13,7 @@ const RecognizeRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionConfig',
+      '6': '.vais.cloud.speech.v1.RecognitionConfig',
       '8': const {},
       '10': 'config'
     },
@@ -22,7 +22,7 @@ const RecognizeRequest$json = const {
       '3': 2,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionAudio',
+      '6': '.vais.cloud.speech.v1.RecognitionAudio',
       '8': const {},
       '10': 'audio'
     },
@@ -37,7 +37,7 @@ const LongRunningRecognizeRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionConfig',
+      '6': '.vais.cloud.speech.v1.RecognitionConfig',
       '8': const {},
       '10': 'config'
     },
@@ -46,7 +46,7 @@ const LongRunningRecognizeRequest$json = const {
       '3': 2,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionAudio',
+      '6': '.vais.cloud.speech.v1.RecognitionAudio',
       '8': const {},
       '10': 'audio'
     },
@@ -61,7 +61,7 @@ const StreamingRecognizeRequest$json = const {
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.StreamingRecognitionConfig',
+      '6': '.vais.cloud.speech.v1.StreamingRecognitionConfig',
       '9': 0,
       '10': 'streamingConfig'
     },
@@ -87,7 +87,7 @@ const StreamingRecognitionConfig$json = const {
       '3': 1,
       '4': 1,
       '5': 11,
-      '6': '.google.cloud.speech.v1.RecognitionConfig',
+      '6': '.vais.cloud.speech.v1.RecognitionConfig',
       '8': const {},
       '10': 'config'
     },

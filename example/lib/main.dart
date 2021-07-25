@@ -61,27 +61,30 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     final config = _getConfig();
 
     final responseStream = speechToText.streamingRecognize(
-        StreamingRecognitionConfig(config: config, interimResults: true),
+        StreamingRecognitionConfig(config: config),
         _audioStream);
 
     var responseText = '';
-
     responseStream.listen((data) {
       final currentText =
-          data.results.map((e) => e.alternatives.first.transcript).join('\n');
+          data.chunks.map((e) => e.alternatives.first.text).join('\n');
 
-      if (data.results.first.isFinal) {
-        responseText += '\n' + currentText;
-        setState(() {
-          text = responseText;
-          recognizeFinished = true;
-        });
-      } else {
-        setState(() {
-          text = responseText + '\n' + currentText;
-          recognizeFinished = true;
-        });
-      }
+      // if (data.results.first.isFinal) {
+      //   responseText += '\n' + currentText;
+      //   setState(() {
+      //     text = responseText;
+      //     recognizeFinished = true;
+      //   });
+      // } else {
+      //   setState(() {
+      //     text = responseText + '\n' + currentText;
+      //     recognizeFinished = true;
+      //   });
+      // }
+      setState(() {
+        text = responseText + '\n' + currentText;
+        recognizeFinished = true;
+      });
     }, onDone: () {
       setState(() {
         recognizing = false;
@@ -99,8 +102,8 @@ class _AudioRecognizeState extends State<AudioRecognize> {
   }
 
   RecognitionConfig _getConfig() => RecognitionConfig(
-      encoding: AudioEncoding.LINEAR16,
-      sampleRateHertz: 16000);
+    model: 'general'
+  );
 
   @override
   Widget build(BuildContext context) {
