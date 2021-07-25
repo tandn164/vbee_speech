@@ -4,23 +4,17 @@ as _cs;
 
 class StreamingRecognitionConfig {
   final RecognitionConfig config;
-  final bool record;
-  final bool partialResults;
   final bool singleUtterance;
-  final bool rawResults;
+  final bool interimResults;
 
   StreamingRecognitionConfig({
     required this.config,
-    this.record = true,
-    this.partialResults = true,
-    this.singleUtterance = true,
-    this.rawResults = true
+    this.singleUtterance = false,
+    this.interimResults = false
   });
 
   _cs.StreamingRecognitionConfig toConfig() => (_cs.StreamingRecognitionConfig()
     ..config = config.toConfig()
-    ..record = record
-    ..partialResults = partialResults
     ..singleUtterance = singleUtterance
-    ..rawResults = rawResults);
+    ..interimResults = interimResults);
 }

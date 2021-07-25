@@ -14,64 +14,71 @@ import 'stt_service.pb.dart' as $0;
 export 'stt_service.pb.dart';
 
 class SttServiceClient extends $grpc.Client {
-  static final _$recognize = $grpc.ClientMethod<$0.StreamingRecognitionRequest,
-          $0.RecognitionResponse>(
+  static final _$recognize =
+  $grpc.ClientMethod<$0.StreamingRecognitionRequest,
+      $0.RecognitionResponse>(
       '/vais.cloud.speech.v1.Speech/Recognize',
-      ($0.StreamingRecognitionRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) =>
-          $0.RecognitionResponse.fromBuffer(value));
-  static final _$streamingRecognize = $grpc.ClientMethod<
-          $0.StreamingRecognitionRequest, $0.StreamingRecognitionResponse>(
-      '/vais.cloud.speech.v1.Speech/StreamingRecognize',
-      ($0.StreamingRecognitionRequest value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) =>
-          $0.StreamingRecognitionResponse.fromBuffer(value));
+          ($0.StreamingRecognitionRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.RecognitionResponse.fromBuffer(value));
 
-  SttServiceClient($grpc.ClientChannel channel,
-      {$grpc.CallOptions? options,
-      $core.Iterable<$grpc.ClientInterceptor>? interceptors})
-      : super(channel, options: options, interceptors: interceptors);
+  static final _$streamingRecognize = $grpc.ClientMethod<
+      $0.StreamingRecognitionRequest, $0.StreamingRecognitionResponse>(
+      '/vais.cloud.speech.v1.Speech/StreamingRecognize',
+          ($0.StreamingRecognitionRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.StreamingRecognitionResponse.fromBuffer(value));
+
+  SttServiceClient($grpc.ClientChannel channel, {$grpc.CallOptions? options})
+      : super(channel, options: options);
 
   $grpc.ResponseFuture<$0.RecognitionResponse> recognize(
-      $async.Stream<$0.StreamingRecognitionRequest> request,
+      $0.StreamingRecognitionRequest request,
       {$grpc.CallOptions? options}) {
-    return $createStreamingCall(_$recognize, request, options: options).single;
+    final call = $createCall(_$recognize, $async.Stream.fromIterable([request]),
+        options: options);
+    return $grpc.ResponseFuture(call);
   }
 
   $grpc.ResponseStream<$0.StreamingRecognitionResponse> streamingRecognize(
       $async.Stream<$0.StreamingRecognitionRequest> request,
       {$grpc.CallOptions? options}) {
-    return $createStreamingCall(_$streamingRecognize, request, options: options);
+    final call = $createCall(_$streamingRecognize, request, options: options);
+    return $grpc.ResponseStream(call);
   }
 }
 
 abstract class SttServiceBase extends $grpc.Service {
   $core.String get $name => 'vais.cloud.speech.v1.Speech';
 
-  SttServiceBase() {
-    $addMethod($grpc.ServiceMethod<$0.StreamingRecognitionRequest,
-            $0.RecognitionResponse>(
+  SpeechServiceBase() {
+    $addMethod($grpc.ServiceMethod<$0.StreamingRecognitionRequest, $0.RecognitionResponse>(
         'Recognize',
-        recognize,
+        recognize_Pre,
         false,
         false,
-        ($core.List<$core.int> value) =>
-            $0.StreamingRecognitionRequest.fromBuffer(value),
-        ($0.RecognitionResponse value) => value.writeToBuffer()));
+            ($core.List<$core.int> value) => $0.StreamingRecognitionRequest.fromBuffer(value),
+            ($0.RecognitionResponse value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.StreamingRecognitionRequest,
-            $0.StreamingRecognitionResponse>(
+        $0.StreamingRecognitionResponse>(
         'StreamingRecognize',
         streamingRecognize,
         true,
-        false,
-        ($core.List<$core.int> value) =>
+        true,
+            ($core.List<$core.int> value) =>
             $0.StreamingRecognitionRequest.fromBuffer(value),
-        ($0.StreamingRecognitionResponse value) => value.writeToBuffer()));
+            ($0.StreamingRecognitionResponse value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.RecognitionResponse> recognize($grpc.ServiceCall call,
-      $async.Stream<$0.StreamingRecognitionRequest> request);
-  $async.Future<$0.StreamingRecognitionResponse> streamingRecognize(
+  $async.Future<$0.RecognitionResponse> recognize_Pre($grpc.ServiceCall call,
+      $async.Future<$0.StreamingRecognitionRequest> request) async {
+    return recognize(call, await request);
+  }
+
+
+  $async.Future<$0.RecognitionResponse> recognize(
+      $grpc.ServiceCall call, $0.StreamingRecognitionRequest request);
+  $async.Stream<$0.StreamingRecognitionResponse> streamingRecognize(
       $grpc.ServiceCall call,
       $async.Stream<$0.StreamingRecognitionRequest> request);
 }

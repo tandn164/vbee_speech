@@ -12,7 +12,7 @@ import 'dart:typed_data' as $typed_data;
 const StreamingRecognitionRequest$json = const {
   '1': 'StreamingRecognitionRequest',
   '2': const [
-    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vais.cloud.speech.v1.StreamingRecognitionConfig', '9': 0, '10': 'config'},
+    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vbee.stt.v1.StreamingRecognitionConfig', '9': 0, '10': 'config'},
     const {'1': 'audio_content', '3': 2, '4': 1, '5': 12, '9': 0, '10': 'audioContent'},
   ],
   '8': const [
@@ -26,16 +26,14 @@ final $typed_data.Uint8List streamingRecognitionRequestDescriptor = $convert.bas
 const StreamingRecognitionConfig$json = const {
   '1': 'StreamingRecognitionConfig',
   '2': const [
-    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vais.cloud.speech.v1.RecognitionConfig', '10': 'config'},
-    const {'1': 'record', '3': 2, '4': 1, '5': 8, '10': 'record'},
-    const {'1': 'partial_results', '3': 3, '4': 1, '5': 8, '10': 'partialResults'},
-    const {'1': 'single_utterance', '3': 4, '4': 1, '5': 8, '10': 'singleUtterance'},
-    const {'1': 'raw_results', '3': 5, '4': 1, '5': 8, '10': 'rawResults'},
+    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vbee.stt.v1.RecognitionConfig', '10': 'config'},
+    const {'1': 'single_utterance', '3': 2, '4': 1, '5': 8, '10': 'singleUtterance'},
+    const {'1': 'interim_results', '3': 3, '4': 1, '5': 8, '10': 'interimResults'},
   ],
 };
 
 /// Descriptor for `StreamingRecognitionConfig`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List streamingRecognitionConfigDescriptor = $convert.base64Decode('ChpTdHJlYW1pbmdSZWNvZ25pdGlvbkNvbmZpZxI2CgZjb25maWcYASABKAsyHi52YmVlLnN0dC52MS5SZWNvZ25pdGlvbkNvbmZpZ1IGY29uZmlnEhYKBnJlY29yZBgCIAEoCFIGcmVjb3JkEicKD3BhcnRpYWxfcmVzdWx0cxgDIAEoCFIOcGFydGlhbFJlc3VsdHMSKQoQc2luZ2xlX3V0dGVyYW5jZRgEIAEoCFIPc2luZ2xlVXR0ZXJhbmNlEh8KC3Jhd19yZXN1bHRzGAUgASgIUgpyYXdSZXN1bHRz');
+final $typed_data.Uint8List streamingRecognitionConfigDescriptor = $convert.base64Decode('ChpTdHJlYW1pbmdSZWNvZ25pdGlvbkNvbmZpZxI2CgZjb25maWcYASABKAsyHi52YmVlLnN0dC52MS5SZWNvZ25pdGlvbkNvbmZpZ1IGY29uZmlnEikKEHNpbmdsZV91dHRlcmFuY2UYAiABKAhSD3NpbmdsZVV0dGVyYW5jZRInCg9pbnRlcmltX3Jlc3VsdHMYAyABKAhSDmludGVyaW1SZXN1bHRz');
 @$core.Deprecated('Use recognitionConfigDescriptor instead')
 const RecognitionConfig$json = const {
   '1': 'RecognitionConfig',
@@ -61,7 +59,7 @@ final $typed_data.Uint8List recognitionResponseDescriptor = $convert.base64Decod
 const StreamingRecognitionResponse$json = const {
   '1': 'StreamingRecognitionResponse',
   '2': const [
-    const {'1': 'chunks', '3': 1, '4': 3, '5': 11, '6': '.vais.cloud.speech.v1.SpeechRecognitionChunk', '10': 'chunks'},
+    const {'1': 'chunks', '3': 1, '4': 3, '5': 11, '6': '.vbee.stt.v1.SpeechRecognitionChunk', '10': 'chunks'},
   ],
   '9': const [
     const {'1': 2, '2': 3},
@@ -75,7 +73,7 @@ final $typed_data.Uint8List streamingRecognitionResponseDescriptor = $convert.ba
 const SpeechRecognitionChunk$json = const {
   '1': 'SpeechRecognitionChunk',
   '2': const [
-    const {'1': 'alternatives', '3': 1, '4': 3, '5': 11, '6': '.vais.cloud.speech.v1.SpeechRecognitionAlternative', '10': 'alternatives'},
+    const {'1': 'alternatives', '3': 1, '4': 3, '5': 11, '6': '.vbee.stt.v1.SpeechRecognitionAlternative', '10': 'alternatives'},
     const {'1': 'final', '3': 2, '4': 1, '5': 8, '10': 'final'},
     const {'1': 'end_of_utterance', '3': 3, '4': 1, '5': 8, '10': 'endOfUtterance'},
   ],
