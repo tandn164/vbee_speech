@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:vbee_speech/config/stt_streaming_recognition_config.dart';
 import 'package:vbee_speech/vbee_speech.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:sound_stream/sound_stream.dart';
@@ -59,29 +60,22 @@ class _AudioRecognizeState extends State<AudioRecognize> {
 
     final speechToText = SpeechToText.viaVaisServiceAccount("5e40f278-dd7a-11eb-9954-0242ac120006");
     final config = _getConfig();
-
-    final responseStream = speechToText.streamingRecognize(
-        StreamingRecognitionConfig(config: config, interimResults: true),
-        _audioStream);
+    final responseStream = speechToText.vbeeStreamingRecognize(
+      StreamingRecognitionConfig(model: 'general'),
+      _audioStream
+    );
+    // final responseStream = speechToText.streamingRecognize(
+    //     StreamingRecognitionConfig(config: config, interimResults: true),
+    //     _audioStream);
 
     var responseText = '';
-
-    responseStream.listen((data) {
+    responseStream.asStream().listen((data) {
       final currentText =
-          data.results.map((e) => e.alternatives.first.transcript).join('\n');
-
-      if (data.results.first.isFinal) {
-        responseText += '\n' + currentText;
-        setState(() {
-          text = responseText;
-          recognizeFinished = true;
-        });
-      } else {
-        setState(() {
-          text = responseText + '\n' + currentText;
-          recognizeFinished = true;
-        });
-      }
+        data.chunks.map((e) => e.alternatives.first.text).join('\n');
+      setState(() {
+        text = responseText + '\n' + currentText;
+        recognizeFinished = true;
+      });
     }, onDone: () {
       setState(() {
         recognizing = false;

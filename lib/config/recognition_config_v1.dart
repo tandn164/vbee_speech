@@ -9,18 +9,7 @@ class RecognitionConfig {
     required this.encoding,
     this.sampleRateHertz,
     this.model = 'general',
-  })  : assert(encoding != AudioEncoding.AMR || sampleRateHertz == 8000,
-            'sampleRateHertz must be 8000.'),
-        assert(encoding != AudioEncoding.AMR_WB || sampleRateHertz == 16000,
-            'sampleRateHertz must be 16000.'),
-        assert(
-            encoding != AudioEncoding.OGG_OPUS ||
-                [8000, 12000, 16000, 24000, 48000].contains(sampleRateHertz),
-            'sampleRateHertz must be one of 8000, 12000, 16000, 24000, or 48000.'),
-        assert(
-            encoding != AudioEncoding.SPEEX_WITH_HEADER_BYTE ||
-                sampleRateHertz == 16000,
-            'sampleRateHertz must be 16000.');
+  });
 
   _cs.RecognitionConfig toConfig() => (_cs.RecognitionConfig()
     ..encoding = _encoding(encoding)

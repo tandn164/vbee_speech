@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package vbee.stt.v1;
+
+service SttService {
+  rpc StreamingRecognize (stream StreamingRecognitionRequest) returns (StreamingRecognitionResponse) {
+  }
+}
+
+message StreamingRecognitionRequest {
+  oneof streaming_request {
+    bytes audio_content = 1;
+  }
+}
+
+message StreamingRecognitionResponse {
+  string text = 1;
+  bool received = 2;
+}
