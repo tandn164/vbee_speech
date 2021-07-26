@@ -60,15 +60,12 @@ class _AudioRecognizeState extends State<AudioRecognize> {
     final speechToText = SpeechToText.viaVaisServiceAccount("5e40f278-dd7a-11eb-9954-0242ac120006");
     final config = _getConfig();
 
-    final responseStream = speechToText.streamingRecognize(
-        StreamingRecognitionConfig(config: config),
-        _audioStream);
-
+    // final responseStream = speechToText.streamingRecognize(
+    //     StreamingRecognitionConfig(config: config),
+    //     _audioStream);
+    final responseStream = speechToText.recognize(config, _audioStream)
     var responseText = '';
-    responseStream.listen((data) {
-      final currentText =
-          data.chunks.map((e) => e.alternatives.first.text).join('\n');
-
+    responseStream.asStream().listen((data) {
       // if (data.results.first.isFinal) {
       //   responseText += '\n' + currentText;
       //   setState(() {
@@ -82,7 +79,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
       //   });
       // }
       setState(() {
-        text = responseText + '\n' + currentText;
+        text = responseText + '\n' + data.text;
         recognizeFinished = true;
       });
     }, onDone: () {
@@ -102,7 +99,7 @@ class _AudioRecognizeState extends State<AudioRecognize> {
   }
 
   RecognitionConfig _getConfig() => RecognitionConfig(
-    model: 'general'
+    model: 'Wav2vec2'
   );
 
   @override

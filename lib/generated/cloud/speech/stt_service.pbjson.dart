@@ -12,7 +12,7 @@ import 'dart:typed_data' as $typed_data;
 const StreamingRecognitionRequest$json = const {
   '1': 'StreamingRecognitionRequest',
   '2': const [
-    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vbee.stt.v1.StreamingRecognitionConfig', '9': 0, '10': 'config'},
+    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vbee.stt.v1.RecognitionConfig', '9': 0, '10': 'config'},
     const {'1': 'audio_content', '3': 2, '4': 1, '5': 12, '9': 0, '10': 'audioContent'},
   ],
   '8': const [
@@ -21,12 +21,22 @@ const StreamingRecognitionRequest$json = const {
 };
 
 /// Descriptor for `StreamingRecognitionRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List streamingRecognitionRequestDescriptor = $convert.base64Decode('ChtTdHJlYW1pbmdSZWNvZ25pdGlvblJlcXVlc3QSQQoGY29uZmlnGAEgASgLMicudmJlZS5zdHQudjEuU3RyZWFtaW5nUmVjb2duaXRpb25Db25maWdIAFIGY29uZmlnEiUKDWF1ZGlvX2NvbnRlbnQYAiABKAxIAFIMYXVkaW9Db250ZW50QhMKEXN0cmVhbWluZ19yZXF1ZXN0');
-@$core.Deprecated('Use streamingRecognitionConfigDescriptor instead')
-const StreamingRecognitionConfig$json = const {
-  '1': 'StreamingRecognitionConfig',
+final $typed_data.Uint8List streamingRecognitionRequestDescriptor = $convert.base64Decode('ChtTdHJlYW1pbmdSZWNvZ25pdGlvblJlcXVlc3QSOAoGY29uZmlnGAEgASgLMh4udmJlZS5zdHQudjEuUmVjb2duaXRpb25Db25maWdIAFIGY29uZmlnEiUKDWF1ZGlvX2NvbnRlbnQYAiABKAxIAFIMYXVkaW9Db250ZW50QhMKEXN0cmVhbWluZ19yZXF1ZXN0');
+@$core.Deprecated('Use recognitionConfigDescriptor instead')
+const RecognitionConfig$json = const {
+  '1': 'RecognitionConfig',
   '2': const [
-    const {'1': 'config', '3': 1, '4': 1, '5': 11, '6': '.vbee.stt.v1.RecognitionConfig', '10': 'config'},
+    const {'1': 'specification', '3': 1, '4': 1, '5': 11, '6': '.vbee.stt.v1.RecognitionSpec', '10': 'specification'},
+  ],
+};
+
+/// Descriptor for `RecognitionConfig`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List recognitionConfigDescriptor = $convert.base64Decode('ChFSZWNvZ25pdGlvbkNvbmZpZxJCCg1zcGVjaWZpY2F0aW9uGAEgASgLMhwudmJlZS5zdHQudjEuUmVjb2duaXRpb25TcGVjUg1zcGVjaWZpY2F0aW9u');
+@$core.Deprecated('Use recognitionSpecDescriptor instead')
+const RecognitionSpec$json = const {
+  '1': 'RecognitionSpec',
+  '2': const [
+    const {'1': 'model', '3': 1, '4': 1, '5': 9, '10': 'model'},
     const {'1': 'record', '3': 2, '4': 1, '5': 8, '10': 'record'},
     const {'1': 'partial_results', '3': 3, '4': 1, '5': 8, '10': 'partialResults'},
     const {'1': 'single_utterance', '3': 4, '4': 1, '5': 8, '10': 'singleUtterance'},
@@ -34,36 +44,8 @@ const StreamingRecognitionConfig$json = const {
   ],
 };
 
-/// Descriptor for `StreamingRecognitionConfig`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List streamingRecognitionConfigDescriptor = $convert.base64Decode('ChpTdHJlYW1pbmdSZWNvZ25pdGlvbkNvbmZpZxI2CgZjb25maWcYASABKAsyHi52YmVlLnN0dC52MS5SZWNvZ25pdGlvbkNvbmZpZ1IGY29uZmlnEhYKBnJlY29yZBgCIAEoCFIGcmVjb3JkEicKD3BhcnRpYWxfcmVzdWx0cxgDIAEoCFIOcGFydGlhbFJlc3VsdHMSKQoQc2luZ2xlX3V0dGVyYW5jZRgEIAEoCFIPc2luZ2xlVXR0ZXJhbmNlEh8KC3Jhd19yZXN1bHRzGAUgASgIUgpyYXdSZXN1bHRz');
-@$core.Deprecated('Use recognitionConfigDescriptor instead')
-const RecognitionConfig$json = const {
-  '1': 'RecognitionConfig',
-  '2': const [
-    const {'1': 'model', '3': 1, '4': 1, '5': 9, '10': 'model'},
-    const {'1': 'sample_rate_hertz', '3': 2, '4': 1, '5': 5, '10': 'sampleRateHertz'},
-    const {'1': 'encoding', '3': 3, '4': 1, '5': 14, '6': '.vbee.stt.v1.RecognitionConfig.AudioEncoding', '10': 'encoding'},
-  ],
-  '4': const [RecognitionConfig_AudioEncoding$json],
-};
-
-@$core.Deprecated('Use recognitionConfigDescriptor instead')
-const RecognitionConfig_AudioEncoding$json = const {
-  '1': 'AudioEncoding',
-  '2': const [
-    const {'1': 'ENCODING_UNSPECIFIED', '2': 0},
-    const {'1': 'LINEAR16', '2': 1},
-    const {'1': 'FLAC', '2': 2},
-    const {'1': 'MULAW', '2': 3},
-    const {'1': 'AMR', '2': 4},
-    const {'1': 'AMR_WB', '2': 5},
-    const {'1': 'OGG_OPUS', '2': 6},
-    const {'1': 'SPEEX_WITH_HEADER_BYTE', '2': 7},
-  ],
-};
-
-/// Descriptor for `RecognitionConfig`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List recognitionConfigDescriptor = $convert.base64Decode('ChFSZWNvZ25pdGlvbkNvbmZpZxIUCgVtb2RlbBgBIAEoCVIFbW9kZWwSKgoRc2FtcGxlX3JhdGVfaGVydHoYAiABKAVSD3NhbXBsZVJhdGVIZXJ0ehJICghlbmNvZGluZxgDIAEoDjIsLnZiZWUuc3R0LnYxLlJlY29nbml0aW9uQ29uZmlnLkF1ZGlvRW5jb2RpbmdSCGVuY29kaW5nIosBCg1BdWRpb0VuY29kaW5nEhgKFEVOQ09ESU5HX1VOU1BFQ0lGSUVEEAASDAoITElORUFSMTYQARIICgRGTEFDEAISCQoFTVVMQVcQAxIHCgNBTVIQBBIKCgZBTVJfV0IQBRIMCghPR0dfT1BVUxAGEhoKFlNQRUVYX1dJVEhfSEVBREVSX0JZVEUQBw==');
+/// Descriptor for `RecognitionSpec`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List recognitionSpecDescriptor = $convert.base64Decode('Cg9SZWNvZ25pdGlvblNwZWMSFAoFbW9kZWwYASABKAlSBW1vZGVsEhYKBnJlY29yZBgCIAEoCFIGcmVjb3JkEicKD3BhcnRpYWxfcmVzdWx0cxgDIAEoCFIOcGFydGlhbFJlc3VsdHMSKQoQc2luZ2xlX3V0dGVyYW5jZRgEIAEoCFIPc2luZ2xlVXR0ZXJhbmNlEh8KC3Jhd19yZXN1bHRzGAUgASgIUgpyYXdSZXN1bHRz');
 @$core.Deprecated('Use recognitionResponseDescriptor instead')
 const RecognitionResponse$json = const {
   '1': 'RecognitionResponse',

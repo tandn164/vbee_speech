@@ -10,7 +10,6 @@ import 'package:vbee_speech/speech_client_authenticator.dart';
 import 'package:grpc/grpc.dart';
 
 import 'config/vbee_recognition_config_v1.dart';
-import 'config/vbee_stream_recognition_config.dart';
 
 class SpeechToText {
   final CallOptions _options;
@@ -28,9 +27,10 @@ class SpeechToText {
 
   StreamSubscription<List<int>>? _audioStreamSubscription;
 
-  Stream<StreamingRecognitionResponse> streamingRecognize(
-      StreamingRecognitionConfig config, Stream<List<int>> audioStream) {
+  Future<RecognitionResponse> recognize(
+      RecognitionConfig config, Stream<List<int>> audioStream) {
     final client = SttServiceClient(_channel, options: _options);
+
     final request = StreamController<StreamingRecognitionRequest>();
 
     request
@@ -41,7 +41,8 @@ class SpeechToText {
     _audioStreamSubscription!.onDone(() {
       request.close();
     });
-    return client.streamingRecognize(request.stream);
+
+    return client.recognize(request.stream);
   }
 
   void dispose() {
